@@ -1,0 +1,54 @@
+<div class="text-center">
+
+    <div *ngIf="currentPost">   
+        <div class="page-header">
+            <h3>
+                <a *ngIf="currentPost.link" href="{{ currentPost.link }}">{{ currentPost.title }}</a>
+                <span *ngIf="!(currentPost.link)">{{ currentPost.title }}</span>
+            </h3>
+        </div>
+
+        <div *ngFor="let comment of currentPost.comments">
+            <span class="glyphicon glyphicon-thumbs-up" (click)="incrementCommentVote(comment)"></span>
+                {{  comment.upvotes }} - by {{  comment.author }}
+            <span style="font-size:20px; margin-left:10px;">{{ comment.comment }}</span>
+        </div>
+    </div>
+
+    <!-- Enhace below form working -->
+    <form role="form" style="margin-top: 30px; margin-bottom: 25px">
+        <div class="form-group">
+            <textarea type="text" placeholder="comment" rows="3" class="form-control" #comment></textarea>    
+        </div>
+
+        <button class="btn btn-primary" type="button" (click)="addComment(comment.value)">Add Comment</button>
+    </form>
+
+    <a style="margin-top: 30px" [routerLink]="['/']">back</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

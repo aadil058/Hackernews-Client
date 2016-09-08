@@ -1,0 +1,29 @@
+<div class="page-header text-center">
+    <h1>Flapper News</h1>
+</div>
+
+<div class="container-fluid text-center">
+    
+    <div *ngFor="let post of posts">
+        <span class="glyphicon glyphicon-thumbs-up" (click)="incrementVote(post)"></span>
+        <a *ngIf="post.link" href="{{ post.link }}">{{ post.title }}</a>
+        <span *ngIf="!(post.link)">{{ post.title }}</span>
+        - upvotes: {{ post.upvotes }}
+        <span><a [routerLink]="['/comments', post._id]">comments</a></span>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()"  style="margin-top: 25px">
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="title" placeholder="Post title">
+            <div *ngIf="title.touched || !title.pristine">
+                <div *ngIf="title.errors?.required" class="alert alert-danger">Post title is Required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="link" placeholder="Link">
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Add Post</button>
+    </form>
+</div>
