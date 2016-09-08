@@ -2,7 +2,7 @@
 
 This repo contains client-side code for the [Hackernews-Server], Server side code is written in node.js
 
-**This app requires [Hackernews-Server] to be running along with it to work properly, So install [Hackernews-Server] First **
+**This app requires [Hackernews-Server] to be running along with it to work properly, So install [Hackernews-Server] First**
 
 ### Steps for installation and running the server in your computer:
   - Make sure to install [node.js] First
